@@ -14,6 +14,12 @@
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
             app:destination="@id/SecondFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_Register"
+            app:destination="@id/register" />
+        <action
+            android:id="@+id/action_FirstFragment_to_Login"
+            app:destination="@id/login" />
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
@@ -25,4 +31,14 @@
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
     </fragment>
+    <activity
+        android:id="@+id/register"
+        android:name="com.example.mobileproject.Register"
+        android:label="activity_register"
+        tools:layout="@layout/activity_register" />
+    <activity
+        android:id="@+id/login"
+        android:name="com.example.mobileproject.Login"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login" />
 </navigation>
