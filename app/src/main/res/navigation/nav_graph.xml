@@ -30,6 +30,9 @@
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
+        <action
+            android:id="@+id/action_SecondFragment_to_androidLauncher"
+            app:destination="@id/androidLauncher" />
     </fragment>
     <activity
         android:id="@+id/register"
@@ -41,4 +44,8 @@
         android:name="com.example.mobileproject.Login"
         android:label="activity_login"
         tools:layout="@layout/activity_login" />
+    <activity
+        android:id="@+id/androidLauncher"
+        android:name="com.example.mobileproject.AndroidLauncher"
+        android:label="AndroidLauncher" />
 </navigation>
