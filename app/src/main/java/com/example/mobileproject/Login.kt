@@ -19,9 +19,12 @@ import com.google.android.gms.common.api.ApiException
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.*
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.events.Event
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_register.*
 
 
 class Login : AppCompatActivity() {
@@ -30,6 +33,9 @@ class Login : AppCompatActivity() {
     private lateinit var googleSignInClient: GoogleSignInClient
     //facebook
     private lateinit var callbackManager: CallbackManager
+
+    private lateinit var database: FirebaseDatabase
+    private lateinit var reference: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -44,6 +50,8 @@ class Login : AppCompatActivity() {
 
         googleSignInClient = GoogleSignIn.getClient(this, gso)
 
+        database = FirebaseDatabase.getInstance()
+        reference = database.getReference("users")
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -139,6 +147,16 @@ class Login : AppCompatActivity() {
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
                         // Sign in success, update UI with the signed-in user's information
+                        var name = signupfullname.text.toString().trim()
+                        var email = signupemail.text.toString().trim()
+                        var bestScore = 0
+                        var model = DatabaseModel(name,email,bestScore)
+                        var id = reference.push().key
+
+                        //Here we can send data to database
+                        reference.child(id!!).setValue(model)
+                        signupfullname.setText("")
+                        signupemail.setText("")
                         Log.d(TAG, "signInWithCredential:success")
                         val user = auth.currentUser
                         updateUI(user)
