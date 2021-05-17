@@ -121,6 +121,18 @@ class Login : AppCompatActivity() {
         auth.signInWithCredential(credential)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
+
+                        val userNuovo = Firebase.auth.currentUser
+
+                        val name = userNuovo.displayName
+                        val email = userNuovo.email
+                        var bestScore = 0
+                        var model = DatabaseModel(name,email,bestScore)
+                        var id = reference.push().key
+
+                        //Here we can send data to database
+                        reference.child(id!!).setValue(model)
+
                         // Sign in success, update UI with the signed-in user's information
                         Log.d(TAG, "signInWithCredential:success")
                         val user = auth.currentUser
@@ -146,17 +158,22 @@ class Login : AppCompatActivity() {
         auth.signInWithCredential(credential)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
+                        val userNuovo = Firebase.auth.currentUser
+
                         // Sign in success, update UI with the signed-in user's information
-                        var name = signupfullname.text.toString().trim()
+                        /*var name = signupfullname.text.toString().trim()
                         var email = signupemail.text.toString().trim()
+                        var bestScore = 0
+                        */
+
+                        val name = userNuovo.displayName
+                        val email = userNuovo.email
                         var bestScore = 0
                         var model = DatabaseModel(name,email,bestScore)
                         var id = reference.push().key
 
                         //Here we can send data to database
                         reference.child(id!!).setValue(model)
-                        signupfullname.setText("")
-                        signupemail.setText("")
                         Log.d(TAG, "signInWithCredential:success")
                         val user = auth.currentUser
                         updateUI(user)
