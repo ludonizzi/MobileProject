@@ -94,11 +94,12 @@
 
     <TextView
         android:id="@+id/signupbutlogin"
-        android:layout_width="295dp"
+        android:layout_width="345dp"
         android:layout_height="51dp"
+        android:fontFamily="@font/press_start_2p"
         android:text="Already registered? Login here"
         android:textColor="#FFFFFF"
-        android:textSize="18sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

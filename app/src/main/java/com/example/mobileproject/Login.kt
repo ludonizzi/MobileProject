@@ -1,7 +1,5 @@
 package com.example.mobileproject
 
-import com.facebook.FacebookSdk;
-import com.facebook.appevents.AppEventsLogger;
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -9,19 +7,16 @@ import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.facebook.*
-import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.SignInButton
 import com.google.android.gms.common.api.ApiException
-import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.*
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.events.Event
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_register.*
@@ -122,16 +117,7 @@ class Login : AppCompatActivity() {
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
 
-                        val userNuovo = Firebase.auth.currentUser
-
-                        val name = userNuovo.displayName
-                        val email = userNuovo.email
-                        var bestScore = 0
-                        var model = DatabaseModel(name,email,bestScore)
-                        var id = reference.push().key
-
-                        //Here we can send data to database
-                        reference.child(id!!).setValue(model)
+                        addGoogleDataToDatabase()
 
                         // Sign in success, update UI with the signed-in user's information
                         Log.d(TAG, "signInWithCredential:success")
@@ -158,22 +144,9 @@ class Login : AppCompatActivity() {
         auth.signInWithCredential(credential)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
-                        val userNuovo = Firebase.auth.currentUser
 
-                        // Sign in success, update UI with the signed-in user's information
-                        /*var name = signupfullname.text.toString().trim()
-                        var email = signupemail.text.toString().trim()
-                        var bestScore = 0
-                        */
+                        addFacebookDataToDatabase()
 
-                        val name = userNuovo.displayName
-                        val email = userNuovo.email
-                        var bestScore = 0
-                        var model = DatabaseModel(name,email,bestScore)
-                        var id = reference.push().key
-
-                        //Here we can send data to database
-                        reference.child(id!!).setValue(model)
                         Log.d(TAG, "signInWithCredential:success")
                         val user = auth.currentUser
                         updateUI(user)
@@ -223,6 +196,32 @@ class Login : AppCompatActivity() {
             Toast.makeText(baseContext, "Authentication failed.",
                     Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun addGoogleDataToDatabase() {
+        val userNuovo = Firebase.auth.currentUser
+
+        val name = userNuovo.displayName
+        val email = userNuovo.email
+        var bestScore = 0
+        var model = GoogleDatabaseModel(name,email,bestScore)
+        var id = reference.push().key
+
+        //Here we can send data to database
+        reference.child(id!!).setValue(model)
+    }
+
+    private fun addFacebookDataToDatabase () {
+        val userNuovo = Firebase.auth.currentUser
+
+        val name = userNuovo.displayName
+        val email = userNuovo.email
+        var bestScore = 0
+        var model = FacebookDatabaseModel(name,email,bestScore)
+        var id = reference.push().key
+
+        //Here we can send data to database
+        reference.child(id!!).setValue(model)
     }
     companion object {
         private const val TAG = "GoogleActivity"

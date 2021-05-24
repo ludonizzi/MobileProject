@@ -60,29 +60,20 @@ class Register : AppCompatActivity() {
             signuppassword.requestFocus()
             return
         }
-        if(!(signuppasswordagain.text.toString().equals(signuppassword.text.toString()))) {
-            signuppasswordagain.error = "password_mismatch\": \"The two password fields don't match."
-            signuppasswordagain.requestFocus()
+        if(!signuppassword.text.toString().equals(signuppasswordagain.text.toString())) {
+            signuppassword.error = "password_mismatch\": \"The two password fields don't match."
+            signuppassword.requestFocus()
             return
         }
 
-        auth.createUserWithEmailAndPassword(signupemail.text.toString(),signuppassword.text.toString())
+            auth.createUserWithEmailAndPassword(signupemail.text.toString(),signuppassword.text.toString())
                 .addOnCompleteListener(this){ task ->
                     if(task.isSuccessful){
                         //val user:FirebaseUser? = auth.currentUser
                         //user?.sendEmailVerification()
                                 //?.addOnCompleteListener { task ->
                                     //if (task.isSuccessful) {
-                                        var name = signupfullname.text.toString().trim()
-                                        var email = signupemail.text.toString().trim()
-                                        var bestScore = 0
-                                        var model = DatabaseModel(name,email,bestScore)
-                                        var id = reference.push().key
-
-                                        //Here we can send data to database
-                                        reference.child(id!!).setValue(model)
-                                        signupfullname.setText("")
-                                        signupemail.setText("")
+                                        addDataToDatabase()
                                         startActivity(Intent(this, Login::class.java))
                                         finish()
                                     //}
@@ -101,6 +92,19 @@ class Register : AppCompatActivity() {
         if(currentUser != null){
             //reload()
         }
+    }
+
+    private fun addDataToDatabase() {
+        var name = signupfullname.text.toString().trim()
+        var email = signupemail.text.toString().trim()
+        var bestScore = 0
+        var model = DatabaseModel(name,email,bestScore)
+        var id = reference.push().key
+
+        //Here we can send data to database
+        reference.child(id!!).setValue(model)
+        signupfullname.setText("")
+        signupemail.setText("")
     }
 
     fun updateUI(currentUser: FirebaseUser?){
