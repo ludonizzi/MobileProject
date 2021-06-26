@@ -2,11 +2,11 @@ package com.example.mobileproject
 
 import com.badlogic.gdx.ApplicationAdapter
 import com.badlogic.gdx.Gdx
+import com.badlogic.gdx.Input
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.graphics.g2d.BitmapFont
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer
 import com.badlogic.gdx.math.Circle
 import com.badlogic.gdx.math.Intersector
 import com.badlogic.gdx.math.Rectangle
@@ -97,6 +97,14 @@ class FlappyBird : ApplicationAdapter() {
         randomGenerator = Random()
 
         distHorBwPipes = Gdx.graphics.width * 3/4
+
+        val rotation = Gdx.input.rotation
+        if (Gdx.input.nativeOrientation == Input.Orientation.Portrait && (rotation == 90 || rotation == 270) ||  //First case, the normal phone
+            Gdx.input.nativeOrientation == Input.Orientation.Landscape && (rotation == 0 || rotation == 180)
+        ) //Second case, the landscape device
+            distHorBwPipes = Gdx.graphics.width * 2/4 else
+            distHorBwPipes = Gdx.graphics.width * 3/4
+
 
         for (i in 0 until numberOfPipes)
         {
