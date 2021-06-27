@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Mobile Project</string>
+    <string name="next">Dopo</string>
+    <string name="previous">Prima</string>
+    <string name="login_text">Entra</string>
+    <string name="welcome_text">Bentornato!</string>
+    <string name="register_title">Crea un nuovo account</string>
+    <string name="register_subtitle">Fallo ora!</string>
+    <string name="password_text">Riscrivi password</string>
+    <string name="reg_but">REGISTRATI</string>
+    <string name="log_but">ENTRA</string>
+    <string name="login_memo_text">Gia registrato? Entra qui</string>
+    <string name="signout_but">ESCI</string>
+    <string name="best_score">MIGLIOR PUNTEGGIO</string>
+    <string name="play_text">GIOCA</string>
+</resources>
