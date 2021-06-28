@@ -7,63 +7,51 @@
     android:background="#2196F3"
     tools:context=".SecondFragment">
 
-    <TextView
-        android:id="@+id/textview_second"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="115dp"
-        android:layout_marginBottom="83dp"
-        app:layout_constraintBottom_toTopOf="@+id/signout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/signout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="41dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="72dp"
         android:text="@string/signout_but"
-        app:layout_constraintBottom_toTopOf="@+id/editBestScore"
-        app:layout_constraintStart_toStartOf="@+id/playgamebut"
-        app:layout_constraintTop_toBottomOf="@+id/textview_second" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/playgamebut"
         android:layout_width="187dp"
         android:layout_height="155dp"
-        android:layout_marginTop="37dp"
+        android:layout_marginTop="172dp"
         android:text="@string/play_text"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.869"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editBestScore"
         android:layout_width="352dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="13dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="152dp"
         android:background="#000000"
         android:backgroundTint="#FF9800"
         android:ems="10"
         android:hint="Inserisci il best score da aggiornare"
         android:inputType="textPersonName"
         android:padding="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/bestScoreProva"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signout" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/bestScoreProva"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="22dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="24dp"
         android:text="@string/best_score"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editBestScore" />
 
