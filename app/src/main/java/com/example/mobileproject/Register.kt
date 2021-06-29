@@ -74,7 +74,7 @@ class Register : AppCompatActivity() {
                                 //?.addOnCompleteListener { task ->
                                     //if (task.isSuccessful) {
                                         addDataToDatabase()
-                                        startActivity(Intent(this, Login::class.java))
+                                        startActivity(Intent(this, MainActivity::class.java))
                                         finish()
                                     //}
                                 //}

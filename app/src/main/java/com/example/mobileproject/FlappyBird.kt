@@ -77,10 +77,10 @@ class FlappyBird : ApplicationAdapter() {
         gap = size*4
 
         backGround = Texture("background-day.png")
-        birdsState.add(Texture("bluebird-downflap.png"))
-        birdsState.add(Texture("bluebird-midflap.png"))
-        birdsState.add(Texture("bluebird-upflap.png"))
-        birdsState.add(Texture("bluebird-midflap.png"))
+        birdsState.add(Texture("blue_down.png"))
+        birdsState.add(Texture("blue_mid.png"))
+        birdsState.add(Texture("blue_up.png"))
+        birdsState.add(Texture("blue_mid.png"))
 
         topPipe = Texture("topPipe.png")
         bottomPipe = Texture("bottomPipe.png")
