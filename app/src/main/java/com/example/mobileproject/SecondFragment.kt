@@ -49,14 +49,7 @@ class SecondFragment : Fragment() {
         reference = database.getReference("users").child("users")
 
         view.findViewById<Button>(R.id.bestScoreProva).setOnClickListener {
-            val edit = view.findViewById<EditText>(R.id.editBestScore).text.toString()
-            val hashMap = HashMap<Any, Any>()
-
-            hashMap.put("name", edit)
-
-            //reference.child("-M__6ME2q_EpKPHgAsUx").updateChildren(hashMap)
-
-
+            findNavController().navigate(R.id.action_SecondFragment_to_profile2)
         }
     }
 }

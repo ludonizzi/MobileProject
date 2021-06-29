@@ -33,6 +33,9 @@
         <action
             android:id="@+id/action_SecondFragment_to_androidLauncher"
             app:destination="@id/androidLauncher" />
+        <action
+            android:id="@+id/action_SecondFragment_to_profile2"
+            app:destination="@id/profile2" />
     </fragment>
     <activity
         android:id="@+id/register"
@@ -48,4 +51,10 @@
         android:id="@+id/androidLauncher"
         android:name="com.example.mobileproject.AndroidLauncher"
         android:label="AndroidLauncher" />
+    <activity
+        android:id="@+id/profile2"
+        android:name="com.example.mobileproject.profile"
+        android:label="activity_profile"
+        tools:layout="@layout/activity_profile" >
+    </activity>
 </navigation>
