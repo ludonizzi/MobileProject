@@ -3,11 +3,10 @@ package com.example.mobileproject
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
 import android.util.Patterns
-import android.widget.Button
 import android.widget.Toast
-import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
@@ -34,8 +33,24 @@ class Register : AppCompatActivity() {
 
         // Initialize Firebase Auth
         auth = Firebase.auth
+
+
+        //Show password checkbox listener
+        signuppass_check.setOnClickListener{
+            showPassword()
+        }
+
+        //Show confirm password checkbox listener
+        signuppass_repeat_check.setOnClickListener{
+            showConfirmPassword()
+        }
+
+
         signupbutton.setOnClickListener{
-            signUpUser()
+            if(checkForm()){
+                signUpUser()
+            }
+
         }
 
     }
@@ -44,46 +59,82 @@ class Register : AppCompatActivity() {
 
     }
 
-    private fun signUpUser(){
-        if(signupemail.text.toString().isEmpty()){
-            signupemail.error = "Please enter email"
-            signupemail.requestFocus()
-            return
+    private fun checkForm(): Boolean {
+        var flag = true
+        if(signupemail.text.toString() == ""){
+            signupemail.error = resources.getString(R.string.email_blank)
+            flag = false
         }
-        if(!Patterns.EMAIL_ADDRESS.matcher(signupemail.text.toString()).matches()){
-            signupemail.error = "Please enter valid email"
+        else if(!android.util.Patterns.EMAIL_ADDRESS.matcher(signupemail.text.toString()).matches()) {
             signupemail.requestFocus()
-            return
+            signupemail.error = resources.getString(R.string.email_miss_error)
+            flag = false
         }
         if(signuppassword.text.toString().isEmpty()){
-            signuppassword.error = "Please enter password"
-            signuppassword.requestFocus()
-            return
+            signuppassword.error = resources.getString(R.string.password_blank)
+            flag = false
         }
-        if(!signuppassword.text.toString().equals(signuppasswordagain.text.toString())) {
-            signuppassword.error = "password_mismatch\": \"The two password fields don't match."
-            signuppassword.requestFocus()
-            return
+        else if(signuppassword.text.toString().length < 6) {
+            signuppassword.error = resources.getString(R.string.password_format_error)
+            flag = false
         }
-
-            auth.createUserWithEmailAndPassword(signupemail.text.toString(),signuppassword.text.toString())
-                .addOnCompleteListener(this){ task ->
-                    if(task.isSuccessful){
-                        //val user:FirebaseUser? = auth.currentUser
-                        //user?.sendEmailVerification()
-                                //?.addOnCompleteListener { task ->
-                                    //if (task.isSuccessful) {
-                                        addDataToDatabase()
-                                        startActivity(Intent(this, MainActivity::class.java))
-                                        finish()
-                                    //}
-                                //}
-
-                    } else {
-                        Toast.makeText(baseContext, "Signup failed"+ task.exception, Toast.LENGTH_SHORT).show()
-                    }
-                }
+        if(!signuppasswordrepeat.text.toString().equals(signuppassword.text.toString())) {
+            signuppasswordrepeat.error = resources.getString(R.string.password_confirmation_error)
+            flag = false
+        }
+        return flag
     }
+
+    private fun signUpUser(){
+        auth.createUserWithEmailAndPassword(signupemail.text.toString(),signuppassword.text.toString())
+            .addOnCompleteListener(this){ task ->
+                if(task.isSuccessful){
+                    //val user:FirebaseUser? = auth.currentUser
+                    //user?.sendEmailVerification()
+                            //?.addOnCompleteListener { task ->
+                                //if (task.isSuccessful) {
+                                    addDataToDatabase()
+                                    startActivity(Intent(this, MainActivity::class.java))
+                                    finish()
+                                //}
+                            //}
+
+                } else {
+                    Toast.makeText(baseContext, "Signup failed"+ task.exception, Toast.LENGTH_SHORT).show()
+                }
+            }
+    }
+
+    // Show Password function, used for signup form
+    private var pass_checked : Boolean = true
+    private fun showPassword(){
+
+        if (pass_checked){
+            signuppassword.transformationMethod = HideReturnsTransformationMethod.getInstance()
+            pass_checked = !pass_checked
+            return
+        }
+
+
+        signuppassword.transformationMethod = PasswordTransformationMethod.getInstance()
+        pass_checked = !pass_checked
+    }
+
+    //Show confirm password function, used for signup form
+    private var pass_confirm_checked : Boolean = true
+    private fun showConfirmPassword(){
+
+        if (pass_confirm_checked){
+            signuppasswordrepeat.transformationMethod = HideReturnsTransformationMethod.getInstance()
+            pass_confirm_checked = !pass_confirm_checked
+            return
+        }
+
+
+        signuppasswordrepeat.transformationMethod = PasswordTransformationMethod.getInstance()
+        pass_confirm_checked = !pass_confirm_checked
+    }
+
 
     public override fun onStart() {
         super.onStart()

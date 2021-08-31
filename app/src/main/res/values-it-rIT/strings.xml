@@ -14,4 +14,10 @@
     <string name="signout_but">ESCI</string>
     <string name="best_score">MIGLIOR PUNTEGGIO</string>
     <string name="play_text">GIOCA</string>
+    <string name="email_miss_error">Inserisci un\'email valida</string>
+    <string name="password_format_error">La password deve avere almeno 6 caratteri</string>
+    <string name="password_confirmation_error">le password non coincidono</string>
+    <string name="email_blank">Inserisci un\'email</string>
+    <string name="password_blank">Inserisci una password</string>
+    <string name="showpasstext">Mostra password</string>
 </resources>
