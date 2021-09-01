@@ -16,6 +16,11 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
 
+
+
+
+
+
 class MainActivity : AppCompatActivity(){
 
     private lateinit var auth: FirebaseAuth
@@ -34,14 +39,27 @@ class MainActivity : AppCompatActivity(){
         return true
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        return when (item.itemId) {
-            R.id.action_settings -> true
-            else -> super.onOptionsItemSelected(item)
+    override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
+
+        R.id.action_profile -> {
+            startActivity(Intent(this, Profile::class.java))
+            true
+            }
+
+        android.R.id.home -> {
+            onBackPressed()
+            true
         }
+
+        else -> super.onOptionsItemSelected(item)
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu): Boolean {
+        val register = menu.findItem(R.id.action_profile)
+
+        //show profile button if user is logged in
+        register.isVisible = auth.currentUser != null
+        return true
     }
 
 }

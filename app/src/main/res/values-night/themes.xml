@@ -2,13 +2,28 @@
     <!-- Base application theme. -->
     <style name="Theme.MobileProject" parent="Theme.AppCompat.DayNight.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/theme1</item>
-        <item name="colorPrimaryDark">@color/theme2</item>
-        <item name="colorAccent">@color/theme3</item>
+        <item name="colorPrimary">@color/theme2</item>
+        <item name="colorPrimaryDark">@color/theme3</item>
+        <item name="colorAccent">@color/theme1</item>
+
+
         <item name="android:colorBackground">@color/black</item>
         <item name="android:textColor">@color/white</item>
         <!-- Standard toolbar disabled -->
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.MobileProject.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.MobileProject.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.MobileProject.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_background</item>
     </style>
 </resources>

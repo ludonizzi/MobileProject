@@ -26,6 +26,7 @@ class Home : Fragment() {
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
@@ -36,17 +37,19 @@ class Home : Fragment() {
         view.findViewById<Button>(R.id.signout).setOnClickListener {
             FirebaseAuth.getInstance().signOut();
             LoginManager.getInstance().logOut();
-            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
+            findNavController().navigate(R.id.action_HomeFragment_to_IntroFragment)
         }
         playgamebut.setOnClickListener{
-            findNavController().navigate(R.id.action_SecondFragment_to_androidLauncher)
+            findNavController().navigate(R.id.action_HomeFragment_to_androidLauncher)
         }
+
+
 
         database = FirebaseDatabase.getInstance()
         reference = database.getReference("users").child("users")
 
         view.findViewById<Button>(R.id.bestScoreProva).setOnClickListener {
-            findNavController().navigate(R.id.action_SecondFragment_to_profile2)
+            findNavController().navigate(R.id.action_HomeFragment_to_profile2)
         }
     }
 }

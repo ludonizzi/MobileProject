@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Mobile Project</string>
+    <string name="app_name">MACC</string>
     <string name="next">Dopo</string>
     <string name="previous">Prima</string>
     <string name="login_text">Entra</string>

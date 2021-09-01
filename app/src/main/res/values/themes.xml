@@ -2,9 +2,12 @@
     <!-- Base application theme. -->
     <style name="Theme.MobileProject" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/theme1</item>
-        <item name="colorPrimaryDark">@color/theme2</item>
-        <item name="colorAccent">@color/theme3</item>
+
+        <item name="colorPrimary">@color/theme2</item>
+        <item name="colorPrimaryDark">@color/theme3</item>
+        <item name="colorAccent">@color/theme1</item>
+
+
         <item name="android:colorBackground">@color/theme1</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:editTextColor">@color/white</item>
@@ -21,4 +24,8 @@
     <style name="Theme.MobileProject.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.MobileProject.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_background</item>
+    </style>
 </resources>

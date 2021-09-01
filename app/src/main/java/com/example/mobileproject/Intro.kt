@@ -5,12 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.fragment_intro.*
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -30,14 +30,27 @@ class Intro : Fragment() {
 
         auth = Firebase.auth
 
-        view.findViewById<Button>(R.id.loginbut).setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_Login)
+        loginbut.setOnClickListener {
+            findNavController().navigate(R.id.action_IntroFragment_to_Login)
         }
-        view.findViewById<Button>(R.id.signupbut).setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_Register)
+        signupbut.setOnClickListener {
+            findNavController().navigate(R.id.action_IntroFragment_to_Register)
         }
+
+        //button animations
+        bird_gif.alpha = 0f
+        bird_gif.translationX = -300f
+        bird_gif.animate().alpha(1f).translationXBy(300f).setStartDelay(1000).duration = 1000
+
+        loginbut.alpha = 0f
+        loginbut.translationY = 300f
+        loginbut.animate().alpha(1f).translationYBy(-300f).duration = 1000
+
+        signupbut.alpha = 0f
+        signupbut.translationY = 300f
+        signupbut.animate().alpha(1f).translationYBy(-300f).setStartDelay(200).duration = 1000
     }
-    public override fun onStart() {
+    override fun onStart() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = auth.currentUser
@@ -45,7 +58,7 @@ class Intro : Fragment() {
     }
     private fun updateUI(currentUser: FirebaseUser?){
         if(currentUser!=null){
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+            findNavController().navigate(R.id.action_IntroFragment_to_HomeFragment)
         }
     }
 }

@@ -3,39 +3,39 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/IntroFragment">
 
     <fragment
-        android:id="@+id/FirstFragment"
+        android:id="@+id/IntroFragment"
         android:name="com.example.mobileproject.Intro"
-        android:label="@string/first_fragment_label"
+        android:label="@string/fragment_intro_label"
         tools:layout="@layout/fragment_intro">
 
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/action_IntroFragment_to_HomeFragment"
+            app:destination="@id/HomeFragment" />
         <action
-            android:id="@+id/action_FirstFragment_to_Register"
+            android:id="@+id/action_IntroFragment_to_Register"
             app:destination="@id/register" />
         <action
-            android:id="@+id/action_FirstFragment_to_Login"
+            android:id="@+id/action_IntroFragment_to_Login"
             app:destination="@id/login" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
+        android:id="@+id/HomeFragment"
         android:name="com.example.mobileproject.Home"
-        android:label="@string/second_fragment_label"
+        android:label="@string/fragment_home_label"
         tools:layout="@layout/fragment_home">
 
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_HomeFragment_to_IntroFragment"
+            app:destination="@id/IntroFragment" />
         <action
-            android:id="@+id/action_SecondFragment_to_androidLauncher"
+            android:id="@+id/action_HomeFragment_to_androidLauncher"
             app:destination="@id/androidLauncher" />
         <action
-            android:id="@+id/action_SecondFragment_to_profile2"
-            app:destination="@id/profile2" />
+            android:id="@+id/action_HomeFragment_to_profile2"
+            app:destination="@id/profile" />
     </fragment>
     <activity
         android:id="@+id/register"
@@ -52,8 +52,8 @@
         android:name="com.example.mobileproject.AndroidLauncher"
         android:label="AndroidLauncher" />
     <activity
-        android:id="@+id/profile2"
-        android:name="com.example.mobileproject.profile"
+        android:id="@+id/profile"
+        android:name="com.example.mobileproject.Profile"
         android:label="activity_profile"
         tools:layout="@layout/activity_profile" >
     </activity>
