@@ -19,14 +19,19 @@
     <string name="log_but">LOGIN</string>
     <string name="login_memo_text">Already registered Login here</string>
     <string name="signout_but">SIGN OUT</string>
+    <string name="signuptext">Don\'t have an account? Sign up now!</string>
 
     <string name="best_score">BEST SCORE</string>
     <string name="play_text">PLAY</string>
 
+    <string name="email_hint" translatable="false">Email</string>
+    <string name="password_hint" translatable="false">Password</string>
     <string name="email_miss_error">Please insert a valid email</string>
     <string name="password_format_error">Password must be at least 6 characters</string>
     <string name="password_confirmation_error">Confirm password does not match</string>
     <string name="email_blank">Please provide an email</string>
     <string name="password_blank">Please provide a password</string>
     <string name="showpasstext">Show Passoword</string>
+
+    <string name="logout_but">Logout</string>
 </resources>

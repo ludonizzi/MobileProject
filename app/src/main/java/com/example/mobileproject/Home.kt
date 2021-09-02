@@ -34,11 +34,6 @@ class Home : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        view.findViewById<Button>(R.id.signout).setOnClickListener {
-            FirebaseAuth.getInstance().signOut();
-            LoginManager.getInstance().logOut();
-            findNavController().navigate(R.id.action_HomeFragment_to_IntroFragment)
-        }
         playgamebut.setOnClickListener{
             findNavController().navigate(R.id.action_HomeFragment_to_androidLauncher)
         }
@@ -48,8 +43,5 @@ class Home : Fragment() {
         database = FirebaseDatabase.getInstance()
         reference = database.getReference("users").child("users")
 
-        view.findViewById<Button>(R.id.bestScoreProva).setOnClickListener {
-            findNavController().navigate(R.id.action_HomeFragment_to_profile2)
-        }
     }
 }

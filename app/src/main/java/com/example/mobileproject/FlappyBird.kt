@@ -30,7 +30,7 @@ class FlappyBird : ApplicationAdapter() {
     var velocity: Float = 0f
 
     var gameState = 0
-    var gravity = 2f
+    var gravity = 1f
 
     var gap = 0f
 
@@ -162,7 +162,7 @@ class FlappyBird : ApplicationAdapter() {
 
             if(Gdx.input.justTouched())
             {
-                velocity = (-gap*0.07).toFloat()
+                velocity = (-gap*0.055).toFloat()
             }
 
             for (i in 0 until numberOfPipes)

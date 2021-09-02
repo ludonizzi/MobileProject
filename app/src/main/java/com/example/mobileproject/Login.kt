@@ -19,7 +19,6 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.android.synthetic.main.activity_register.*
 
 
 class Login : AppCompatActivity() {
@@ -50,12 +49,20 @@ class Login : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        loginbutton.setOnClickListener{
+
+
+        custom_login_button.setOnClickListener{
             onLogin()
         }
+
+
         googlebutton.setSize(SignInButton.SIZE_ICON_ONLY)
         googlebutton.setOnClickListener{
             signIn()
+        }
+
+        signuptext.setOnClickListener{
+            startActivity(Intent(this, Register::class.java))
         }
         //facebook
         // [START initialize_fblogin]
@@ -117,7 +124,7 @@ class Login : AppCompatActivity() {
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
 
-                        addGoogleDataToDatabase()
+                        addUserToDatabase()
 
                         // Sign in success, update UI with the signed-in user's information
                         Log.d(TAG, "signInWithCredential:success")
@@ -145,7 +152,7 @@ class Login : AppCompatActivity() {
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
 
-                        addFacebookDataToDatabase()
+                        addUserToDatabase()
 
                         Log.d(TAG, "signInWithCredential:success")
                         val user = auth.currentUser
@@ -198,30 +205,17 @@ class Login : AppCompatActivity() {
         }
     }
 
-    private fun addGoogleDataToDatabase() {
-        val userNuovo = Firebase.auth.currentUser
-
-        val name = userNuovo.displayName
-        val email = userNuovo.email
+    private fun addUserToDatabase () {
+        val user = Firebase.auth.currentUser
+        val name = user?.displayName
+        val email = user?.email
         var bestScore = 0
-        var model = GoogleDatabaseModel(name,email,bestScore)
-        var id = reference.push().key
+
+        val database = DatabaseManager()
+        database.writeNewUser(user!!.uid, name, email,bestScore)
 
         //Here we can send data to database
-        reference.child(id!!).setValue(model)
-    }
-
-    private fun addFacebookDataToDatabase () {
-        val userNuovo = Firebase.auth.currentUser
-
-        val name = userNuovo.displayName
-        val email = userNuovo.email
-        var bestScore = 0
-        var model = FacebookDatabaseModel(name,email,bestScore)
-        var id = reference.push().key
-
-        //Here we can send data to database
-        reference.child(id!!).setValue(model)
+        //reference.child(id!!).setValue(model)
     }
     companion object {
         private const val TAG = "GoogleActivity"

@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
-import android.util.Patterns
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -43,6 +42,9 @@ class Register : AppCompatActivity() {
         //Show confirm password checkbox listener
         signuppass_repeat_check.setOnClickListener{
             showConfirmPassword()
+        }
+        signupbutlogin.setOnClickListener{
+            startActivity(Intent(this, Login::class.java))
         }
 
 
@@ -146,16 +148,12 @@ class Register : AppCompatActivity() {
     }
 
     private fun addDataToDatabase() {
-        var name = signupfullname.text.toString().trim()
-        var email = signupemail.text.toString().trim()
-        var bestScore = 0
-        var model = DatabaseModel(name,email,bestScore)
-        var id = reference.push().key
-
-        //Here we can send data to database
-        reference.child(id!!).setValue(model)
-        signupfullname.setText("")
-        signupemail.setText("")
+        val database = DatabaseManager()
+        val user = auth.currentUser
+        val name = signupfullname.text.toString().trim()
+        val email = signupemail.text.toString().trim()
+        val bestScore = 0
+        database.writeNewUser(user!!.uid, name, email,bestScore)
     }
 
     fun updateUI(currentUser: FirebaseUser?){

@@ -26,8 +26,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.MobileProject.NoActionBar">
+            android:label="@string/app_name">
         </activity>
 
         <meta-data

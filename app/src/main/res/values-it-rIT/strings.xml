@@ -20,4 +20,6 @@
     <string name="email_blank">Inserisci un\'email</string>
     <string name="password_blank">Inserisci una password</string>
     <string name="showpasstext">Mostra password</string>
+    <string name="signuptext">Non hai un account? Registrati ora!</string>
+    <string name="logout_but">Esci</string>
 </resources>
