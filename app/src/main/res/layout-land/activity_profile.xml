@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:fillViewport="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Profile">
@@ -18,12 +19,113 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:text="@string/logout_but"
             android:background="@drawable/back_button"
+            android:text="@string/logout_but"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.938"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/profile_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="88dp"
+            android:fontFamily="@font/press_start_2p"
+            android:text="@string/profile_text"
+            android:textAlignment="center"
+            android:textColor="@color/theme2"
+            android:textSize="34sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/profilepicture"
+            android:layout_width="129dp"
+            android:layout_height="129dp"
+            android:layout_marginTop="64dp"
+            android:src="@drawable/introgif"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.145"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/profile_text"
+            tools:ignore="ImageContrastCheck" />
+
+        <TextView
+            android:id="@+id/view_score"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="32dp"
+            android:ems="10"
+            android:fontFamily="@font/press_start_2p"
+            android:gravity="center"
+            android:text="@string/name"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/profilepicture"
+            app:layout_constraintTop_toBottomOf="@+id/profile_text" />
+
+        <TextView
+            android:id="@+id/view_text_name"
+            android:layout_width="330dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:gravity="center_vertical"
+            android:text="@string/name"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profilepicture" />
+
+        <EditText
+            android:id="@+id/edit_name"
+            android:layout_width="330dp"
+            android:layout_height="48dp"
+            android:background="@drawable/back_edit_text"
+            android:ems="10"
+            android:gravity="center_vertical"
+            android:inputType="textPersonName"
+            android:paddingStart="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view_text_name" />
+
+        <TextView
+            android:id="@+id/view_text_email"
+            android:layout_width="330dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:gravity="center_vertical"
+            android:text="@string/email"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_name" />
+
+        <TextView
+            android:id="@+id/view_email"
+            android:layout_width="330dp"
+            android:layout_height="48dp"
+            android:background="@drawable/back_edit_text"
+            android:ems="10"
+            android:gravity="center_vertical"
+            android:inputType="textEmailAddress"
+            android:paddingStart="10dp"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view_text_email" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,7 +1,12 @@
 package com.example.mobileproject
 
+import android.app.Activity
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.View
+import android.widget.EditText
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.ktx.auth
@@ -48,5 +53,25 @@ class DatabaseManager(
             Log.e("firebase", "Error getting medicines data", it)
         }
     }
+
+
+    fun getUserDetail(activity: Activity, uid: String){
+        database!!.child("users").child(uid).get().addOnSuccessListener {
+            activity.requireViewById<EditText>(R.id.edit_name).setText(it.child("name").value.toString())
+            activity.requireViewById<TextView>(R.id.view_email).text = it.child("email").value.toString()
+            activity.requireViewById<TextView>(R.id.view_score).text = it.child("score").value.toString()
+                activity.requireViewById<EditText>(R.id.edit_name).addTextChangedListener(object :
+                    TextWatcher {
+                    override fun afterTextChanged(s: Editable) {}
+                    override fun beforeTextChanged(s: CharSequence, start: Int,
+                                                   count: Int, after: Int) {}
+                    override fun onTextChanged(s: CharSequence, start: Int,
+                                               before: Int, count: Int) {
+                        //removing unnecessary non-null assertions on "database" and "uid"
+                        database.child("users").child(uid).child("name").setValue(s.toString())
+                    }
+                })
+            }
+        }
 
 }

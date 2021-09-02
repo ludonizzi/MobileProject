@@ -2,7 +2,7 @@
 <resources>
     <color name="theme1">#03A9F4</color>
     <color name="theme2">#FF9800</color>
-    <color name="theme3">#FF5722</color>
+    <color name="theme3">#F44336</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="grey">#646464</color>

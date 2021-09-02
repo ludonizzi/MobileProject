@@ -33,5 +33,12 @@
     <string name="password_blank">Please provide a password</string>
     <string name="showpasstext">Show Passoword</string>
 
+
+    <!-- Profile strings -->
+
     <string name="logout_but">Logout</string>
+    <string name="profile_text">Profile</string>
+    <string name="profile_image_description">Profile pic</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
 </resources>

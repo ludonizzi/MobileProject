@@ -22,4 +22,8 @@
     <string name="showpasstext">Mostra password</string>
     <string name="signuptext">Non hai un account? Registrati ora!</string>
     <string name="logout_but">Esci</string>
+    <string name="profile_text">Profilo</string>
+    <string name="profile_image_description">Immagine di profilo</string>
+    <string name="name">Nome</string>
+    <string name="email">Email</string>
 </resources>
