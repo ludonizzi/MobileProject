@@ -6,33 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".Home">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_users"
+        android:background="@drawable/back"
+        android:layout_width="340dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="32dp"
+        android:scrollbars="vertical"
+        app:layoutManager="LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/playgamebut"
         android:layout_width="187dp"
         android:layout_height="155dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/back_button"
         android:text="@string/play_text"
         android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editBestScore" />
-
-    <EditText
-        android:id="@+id/editBestScore"
-        android:layout_width="352dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="168dp"
-        android:background="#000000"
-        android:backgroundTint="#FF9800"
-        android:ems="10"
-        android:hint="Inserisci il best score da aggiornare"
-        android:inputType="textPersonName"
-        android:padding="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/recycler_view_users" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

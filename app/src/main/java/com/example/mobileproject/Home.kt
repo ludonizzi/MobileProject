@@ -34,14 +34,13 @@ class Home : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val database = DatabaseManager()
+        database.getUser(this)
+
+
         playgamebut.setOnClickListener{
             findNavController().navigate(R.id.action_HomeFragment_to_androidLauncher)
         }
-
-
-
-        database = FirebaseDatabase.getInstance()
-        reference = database.getReference("users").child("users")
 
     }
 }

@@ -209,10 +209,10 @@ class Login : AppCompatActivity() {
         val user = Firebase.auth.currentUser
         val name = user?.displayName
         val email = user?.email
-        var bestScore = 0
+        var score = 0
 
         val database = DatabaseManager()
-        database.writeNewUser(user!!.uid, name, email,bestScore)
+        database.writeNewUser(user!!.uid, name, email,score)
 
         //Here we can send data to database
         //reference.child(id!!).setValue(model)

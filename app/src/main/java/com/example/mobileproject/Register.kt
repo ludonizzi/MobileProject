@@ -152,8 +152,8 @@ class Register : AppCompatActivity() {
         val user = auth.currentUser
         val name = signupfullname.text.toString().trim()
         val email = signupemail.text.toString().trim()
-        val bestScore = 0
-        database.writeNewUser(user!!.uid, name, email,bestScore)
+        val score = 0
+        database.writeNewUser(user!!.uid, name, email,score)
     }
 
     fun updateUI(currentUser: FirebaseUser?){

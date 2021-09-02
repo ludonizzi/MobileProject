@@ -4,35 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#2196F3"
     tools:context=".Home">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_users"
+        android:layout_width="350dp"
+        android:layout_height="250dp"
+        android:layout_marginStart="32dp"
+        android:background="@drawable/back"
+        android:scrollbars="vertical"
+        app:layoutManager="LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.496" />
 
     <Button
         android:id="@+id/playgamebut"
         android:layout_width="187dp"
         android:layout_height="155dp"
-        android:layout_marginTop="172dp"
+        android:background="@drawable/back_button"
         android:text="@string/play_text"
         android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.869"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/editBestScore"
-        android:layout_width="352dp"
-        android:layout_height="51dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="152dp"
-        android:background="#000000"
-        android:backgroundTint="#FF9800"
-        android:ems="10"
-        android:hint="Inserisci il best score da aggiornare"
-        android:inputType="textPersonName"
-        android:padding="10dp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toEndOf="@+id/recycler_view_users"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
