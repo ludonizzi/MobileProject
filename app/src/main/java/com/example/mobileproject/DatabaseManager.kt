@@ -24,8 +24,7 @@ class DatabaseManager(
 ) {
 
     fun writeNewUser(userId: String, name: String?, email: String?, score: Int){
-        val user
-        = UserModel(name,email,score)
+        val user = UserModel(name,email,score)
         database!!.child("users").child(userId).setValue(user)
     }
 
@@ -50,7 +49,7 @@ class DatabaseManager(
                 }
             }
         }.addOnFailureListener{
-            Log.e("firebase", "Error getting medicines data", it)
+            Log.e("firebase", "Error getting users", it)
         }
     }
 
@@ -67,7 +66,6 @@ class DatabaseManager(
                                                    count: Int, after: Int) {}
                     override fun onTextChanged(s: CharSequence, start: Int,
                                                before: Int, count: Int) {
-                        //removing unnecessary non-null assertions on "database" and "uid"
                         database.child("users").child(uid).child("name").setValue(s.toString())
                     }
                 })

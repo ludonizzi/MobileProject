@@ -152,7 +152,9 @@ class Login : AppCompatActivity() {
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
 
-                        addUserToDatabase()
+                        if(task.result!!.additionalUserInfo!!.isNewUser){
+                            addUserToDatabase()
+                        }
 
                         Log.d(TAG, "signInWithCredential:success")
                         val user = auth.currentUser
