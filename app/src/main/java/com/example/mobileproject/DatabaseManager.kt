@@ -23,9 +23,9 @@ class DatabaseManager(
     private val uid: String? = Firebase.auth.currentUser!!.uid
 ) {
 
-    fun writeNewUser(userId: String, name: String?, email: String?, score: Int){
+    fun writeNewUser(name: String?, email: String?, score: Int){
         val user = UserModel(name,email,score)
-        database!!.child("users").child(userId).setValue(user)
+        database!!.child("users").child(uid!!).setValue(user)
     }
 
     fun getAndSetBestScore(current_score: Int){
@@ -50,7 +50,7 @@ class DatabaseManager(
                 }
 
                 var myDataset = listUser
-                myDataset.sortByDescending {it.score }
+                myDataset.sortByDescending { it -> it.score }
                 fragment.requireView().recycler_view_users.apply {
                     layoutManager = LinearLayoutManager(fragment.activity)
                     adapter = UserAdapter(this.context, myDataset, fragment)

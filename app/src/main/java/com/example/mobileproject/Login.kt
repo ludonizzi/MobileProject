@@ -214,7 +214,7 @@ class Login : AppCompatActivity() {
         var score = 0
 
         val database = DatabaseManager()
-        database.writeNewUser(user!!.uid, name, email,score)
+        database.writeNewUser(name, email,score)
 
         //Here we can send data to database
         //reference.child(id!!).setValue(model)

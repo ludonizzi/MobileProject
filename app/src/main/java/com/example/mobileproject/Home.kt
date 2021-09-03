@@ -1,8 +1,10 @@
 package com.example.mobileproject
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
@@ -42,5 +44,12 @@ class Home : Fragment() {
             findNavController().navigate(R.id.action_HomeFragment_to_androidLauncher)
         }
 
+        swipe_refresh.setOnRefreshListener{
+            swipe_refresh.isRefreshing = true
+            database.getUser(this)
+            swipe_refresh.isRefreshing = false
+        }
+
     }
+
 }

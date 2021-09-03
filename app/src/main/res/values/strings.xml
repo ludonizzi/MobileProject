@@ -23,6 +23,7 @@
 
     <string name="best_score">BEST SCORE</string>
     <string name="play_text">PLAY</string>
+    <string name="ranking">Ranking</string>
 
     <string name="email_hint" translatable="false">Email</string>
     <string name="password_hint" translatable="false">Password</string>

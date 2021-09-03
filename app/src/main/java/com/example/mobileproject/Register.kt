@@ -108,33 +108,33 @@ class Register : AppCompatActivity() {
     }
 
     // Show Password function, used for signup form
-    private var pass_checked : Boolean = true
+    private var passChecked : Boolean = true
     private fun showPassword(){
 
-        if (pass_checked){
+        if (passChecked){
             signuppassword.transformationMethod = HideReturnsTransformationMethod.getInstance()
-            pass_checked = !pass_checked
+            passChecked = !passChecked
             return
         }
 
 
         signuppassword.transformationMethod = PasswordTransformationMethod.getInstance()
-        pass_checked = !pass_checked
+        passChecked = !passChecked
     }
 
     //Show confirm password function, used for signup form
-    private var pass_confirm_checked : Boolean = true
+    private var passConfirmChecked : Boolean = true
     private fun showConfirmPassword(){
 
-        if (pass_confirm_checked){
+        if (passConfirmChecked){
             signuppasswordrepeat.transformationMethod = HideReturnsTransformationMethod.getInstance()
-            pass_confirm_checked = !pass_confirm_checked
+            passConfirmChecked = !passConfirmChecked
             return
         }
 
 
         signuppasswordrepeat.transformationMethod = PasswordTransformationMethod.getInstance()
-        pass_confirm_checked = !pass_confirm_checked
+        passConfirmChecked = !passConfirmChecked
     }
 
 
@@ -153,7 +153,7 @@ class Register : AppCompatActivity() {
         val name = signupfullname.text.toString().trim()
         val email = signupemail.text.toString().trim()
         val score = 0
-        database.writeNewUser(user!!.uid, name, email,score)
+        database.writeNewUser(name, email,score)
     }
 
     fun updateUI(currentUser: FirebaseUser?){
