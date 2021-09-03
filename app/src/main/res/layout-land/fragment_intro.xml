@@ -30,10 +30,10 @@
             android:id="@+id/bird_gif"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:layout_marginTop="48dp"
+            android:layout_marginTop="16dp"
             android:src="@drawable/introgif"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.146"
+            app:layout_constraintHorizontal_bias="0.148"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textview_first" />
 
@@ -41,13 +41,13 @@
             android:id="@+id/loginbut"
             android:layout_width="150dp"
             android:layout_height="48dp"
-            android:layout_marginTop="48dp"
+            android:layout_marginTop="24dp"
             android:background="@drawable/back_button"
             android:fallbackLineSpacing="false"
             android:text="@string/log_but"
             android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.774"
+            app:layout_constraintHorizontal_bias="0.773"
             app:layout_constraintStart_toEndOf="@+id/bird_gif"
             app:layout_constraintTop_toBottomOf="@+id/textview_first" />
 

@@ -27,4 +27,9 @@
     <string name="name">Nome</string>
     <string name="email">Email</string>
     <string name="ranking">Classifica</string>
+    <string name="reset_score">azzera punteggio</string>
+    <string name="remove_account">rimuovi account</string>
+    <string name="remove_title">Stai rimuovendo il tuo account</string>
+    <string name="remove_subtitle">Sei sicuro?</string>
+    <string name="reset_title">Stai azzerando il tuo punteggio</string>
 </resources>

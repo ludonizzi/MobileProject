@@ -36,6 +36,14 @@ class DatabaseManager(
         }
     }
 
+    fun resetScore(){
+        database!!.child("users").child(uid!!).child("score").setValue(0)
+    }
+
+    fun removeAccount(){
+        database!!.child("users").child(uid!!).removeValue();
+    }
+
     fun getUser(fragment: Fragment){
         val listUser: MutableList<UserModel> = mutableListOf()
         val lm: List<UserModel> = listUser
@@ -62,8 +70,8 @@ class DatabaseManager(
     }
 
 
-    fun getUserDetail(activity: Activity, uid: String){
-        database!!.child("users").child(uid).get().addOnSuccessListener {
+    fun getUserDetail(activity: Activity){
+        database!!.child("users").child(uid!!).get().addOnSuccessListener {
             activity.requireViewById<EditText>(R.id.edit_name).setText(it.child("name").value.toString())
             activity.requireViewById<TextView>(R.id.view_email).text = it.child("email").value.toString()
             activity.requireViewById<TextView>(R.id.view_score).text = it.child("score").value.toString()

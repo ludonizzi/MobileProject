@@ -42,4 +42,9 @@
     <string name="profile_image_description">Profile pic</string>
     <string name="name">Name</string>
     <string name="email">Email</string>
+    <string name="reset_score">Reset score</string>
+    <string name="remove_account">Remove account</string>
+    <string name="remove_title">You are removing your account</string>
+    <string name="reset_title">You are resetting your score</string>
+    <string name="remove_subtitle">Are you sure?</string>
 </resources>

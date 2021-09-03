@@ -60,13 +60,13 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginTop="32dp"
+            android:background="@drawable/back"
             android:ems="10"
             android:fontFamily="@font/press_start_2p"
-            android:background="@drawable/back"
             android:gravity="center"
+            android:paddingTop="10dp"
             android:text="@string/name"
             android:textSize="20sp"
-            android:paddingTop="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/profilepicture"
@@ -121,13 +121,36 @@
             android:background="@drawable/back_edit_text"
             android:ems="10"
             android:gravity="center_vertical"
-            android:inputType="textEmailAddress"
             android:paddingStart="10dp"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view_text_email" />
+
+        <Button
+            android:id="@+id/reset_score"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/back_button"
+            android:text="@string/reset_score"
+            app:layout_constraintEnd_toStartOf="@+id/remove_account"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view_email" />
+
+        <Button
+            android:id="@+id/remove_account"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/remove_account"
+            android:background="@drawable/back_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/reset_score"
+            app:layout_constraintTop_toBottomOf="@+id/view_email" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
