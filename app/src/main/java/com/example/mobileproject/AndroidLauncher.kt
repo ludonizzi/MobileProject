@@ -10,6 +10,6 @@ class AndroidLauncher: AndroidApplication()
     {
         super.onCreate(savedInstanceState)
         val config = AndroidApplicationConfiguration()
-        initialize(FlappyBird(), config)
+        initialize(Game(), config)
     }
 }

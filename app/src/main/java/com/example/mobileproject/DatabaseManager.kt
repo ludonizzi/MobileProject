@@ -28,6 +28,14 @@ class DatabaseManager(
         database!!.child("users").child(userId).setValue(user)
     }
 
+    fun getAndSetBestScore(current_score: Int){
+        database!!.child("users").child(uid!!).get().addOnSuccessListener {
+            if(current_score > it.child("score").value.toString().toInt()){
+                database.child("users").child(uid).child("score").setValue(current_score.toString())
+            }
+        }
+    }
+
     fun getUser(fragment: Fragment){
         val listUser: MutableList<UserModel> = mutableListOf()
         val lm: List<UserModel> = listUser

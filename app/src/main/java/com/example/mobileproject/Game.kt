@@ -14,7 +14,7 @@ import java.util.*
 import kotlin.math.min
 
 
-class FlappyBird : ApplicationAdapter() {
+class Game : ApplicationAdapter() {
     var batch: SpriteBatch? = null
     var backGround: Texture? = null
     var birdsState = mutableListOf<Texture>()
@@ -228,6 +228,9 @@ class FlappyBird : ApplicationAdapter() {
                     Gdx.graphics.height /2 - size/2,
                     size*6,
                     size)
+
+            //Save score on db
+            DatabaseManager().getAndSetBestScore(score)
 
             if(Gdx.input.justTouched())
             {
