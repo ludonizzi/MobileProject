@@ -126,6 +126,30 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view_text_email" />
 
+        <Button
+            android:id="@+id/reset_score"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/back_button"
+            android:text="@string/reset_score"
+            app:layout_constraintEnd_toStartOf="@+id/remove_account"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view_email" />
+
+        <Button
+            android:id="@+id/remove_account"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/remove_account"
+            android:background="@drawable/back_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/reset_score"
+            app:layout_constraintTop_toBottomOf="@+id/view_email" />
+
         <View
             android:layout_width="match_parent"
             android:layout_height="32dp"
@@ -133,7 +157,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/view_email" />
+            app:layout_constraintTop_toTopOf="@id/reset_score" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
