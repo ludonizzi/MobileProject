@@ -47,4 +47,7 @@
     <string name="remove_title">You are removing your account</string>
     <string name="reset_title">You are resetting your score</string>
     <string name="remove_subtitle">Are you sure?</string>
+
+    <string name="music_on" translatable="false">ON</string>
+    <string name="music_off" translatable="false">OFF</string>
 </resources>

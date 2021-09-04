@@ -14,7 +14,11 @@ class SplashScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        startService(Intent(this, MusicService::class.java))
+
         auth = Firebase.auth
+
+
 
         val currentUser = auth.currentUser
         if(currentUser != null){

@@ -3,6 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.mobileproject.MainActivity">
     <item
+        android:id="@+id/action_music"
+        android:icon="@drawable/ic_music_on"
+        android:title="@string/music_on"
+        app:showAsAction="ifRoom"/>
+    <item
         android:id="@+id/action_profile"
         android:icon="@drawable/profile"
         android:title="@string/app_name"

@@ -1,7 +1,10 @@
 package com.example.mobileproject
 
+import android.content.Context
 import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Bundle
+import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -30,6 +33,7 @@ class MainActivity : AppCompatActivity(){
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
 
+
         auth = Firebase.auth
     }
 
@@ -40,6 +44,22 @@ class MainActivity : AppCompatActivity(){
     }
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
+
+        R.id.action_music -> {
+            if(item.title == getString(R.string.music_on)){
+                stopService(Intent(this, MusicService::class.java))
+                item.icon = getDrawable(R.drawable.ic_music_off)
+                item.title = getString(R.string.music_off)
+            }
+            else{
+                startService(Intent(this, MusicService::class.java))
+                item.icon = getDrawable(R.drawable.ic_music_on)
+                item.title = getString(R.string.music_on)
+            }
+
+
+            true
+        }
 
         R.id.action_profile -> {
             startActivity(Intent(this, Profile::class.java))
