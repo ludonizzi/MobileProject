@@ -2,8 +2,8 @@
     <string name="app_name">MACC</string>
     <string name="action_settings" translatable="false">Settings</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="fragment_intro_label" translatable="false">First Fragment</string>
-    <string name="fragment_home_label" translatable="false">Second Fragment</string>
+    <string name="fragment_intro_label" translatable="false">Welcome</string>
+    <string name="fragment_home_label" translatable="false">Home</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 

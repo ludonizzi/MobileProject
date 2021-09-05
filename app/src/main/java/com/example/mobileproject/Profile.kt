@@ -74,5 +74,9 @@ class Profile : AppCompatActivity() {
             builder.show()
         }
 
+        back_button.setOnClickListener{
+            onBackPressed()
+        }
+
     }
 }

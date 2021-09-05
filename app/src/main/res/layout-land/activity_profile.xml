@@ -13,12 +13,24 @@
         android:layout_height="match_parent">
 
 
+        <ImageButton
+            android:id="@+id/back_button"
+            android:layout_width="48dp"
+            android:layout_height="47dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/back"
+            android:src="@drawable/abc_vector_test"
+            app:layout_constraintEnd_toStartOf="@+id/signout"
+            app:layout_constraintHorizontal_bias="0.044"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <Button
             android:id="@+id/signout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="8dp"
             android:background="@drawable/back_button"
             android:text="@string/logout_but"
             app:layout_constraintEnd_toEndOf="parent"
