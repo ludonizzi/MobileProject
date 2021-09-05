@@ -90,7 +90,6 @@
             android:layout_marginTop="8dp"
             android:buttonTint="@color/theme2"
             android:text="@string/showpasstext"
-            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.190"
             app:layout_constraintStart_toStartOf="parent"
