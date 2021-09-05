@@ -2,6 +2,8 @@ package com.example.mobileproject
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
 import android.util.Log
 import android.util.Patterns
 import android.widget.Toast
@@ -19,6 +21,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_register.*
 
 
 class Login : AppCompatActivity() {
@@ -32,9 +35,17 @@ class Login : AppCompatActivity() {
     private lateinit var reference: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_login)
 
         // Initialize Firebase Auth
         auth = Firebase.auth
+
+        //Show password checkbox listener
+        loginpassword_check.setOnClickListener{
+            showPassword()
+        }
+
 
         // Configure Google Sign In
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -47,8 +58,12 @@ class Login : AppCompatActivity() {
         database = FirebaseDatabase.getInstance()
         reference = database.getReference("users")
 
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+
+
+
+        back_button_login.setOnClickListener{
+            onBackPressed()
+        }
 
 
         custom_login_button.setOnClickListener{
@@ -172,17 +187,17 @@ class Login : AppCompatActivity() {
     }
     private fun onLogin(){
         if(loginemail.text.toString().isEmpty()){
-            loginemail.error = "Please enter email"
+            loginemail.error = resources.getString(R.string.email_blank)
             loginemail.requestFocus()
             return
         }
         if(!Patterns.EMAIL_ADDRESS.matcher(loginemail.text.toString()).matches()){
-            loginemail.error = "Please enter valid email"
+            loginemail.error = resources.getString(R.string.email_miss_error)
             loginemail.requestFocus()
             return
         }
         if(loginpassword.text.toString().isEmpty()){
-            loginpassword.error = "Please enter password"
+            loginpassword.error = resources.getString(R.string.password_blank)
             loginpassword.requestFocus()
             return
         }
@@ -223,4 +238,20 @@ class Login : AppCompatActivity() {
         private const val TAG = "GoogleActivity"
         private const val RC_SIGN_IN = 9001
     }
+
+    // Show Password function, used for login form
+    private var passChecked : Boolean = true
+    private fun showPassword(){
+
+        if (passChecked){
+            loginpassword.transformationMethod = HideReturnsTransformationMethod.getInstance()
+            passChecked = !passChecked
+            return
+        }
+
+
+        loginpassword.transformationMethod = PasswordTransformationMethod.getInstance()
+        passChecked = !passChecked
+    }
+
 }

@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="rectangle">/>
-    <corners
-        android:bottomRightRadius="12dp"
-        android:bottomLeftRadius="12dp"
-        android:topLeftRadius="12dp"
-        android:topRightRadius="12dp"/>
-    <stroke android:width="3dip" android:color="@color/theme2"/>
-</shape>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+android:color="?android:colorControlHighlight">
+<item android:state_enabled="true" android:drawable="@drawable/back_in"/>
+</ripple>

@@ -3,12 +3,7 @@ package com.example.mobileproject
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.View
-import android.widget.ImageView
 import androidx.appcompat.app.AlertDialog
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import com.facebook.login.LoginManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -56,9 +51,9 @@ class Profile : AppCompatActivity() {
 
             //parameters "dialog" and "which" are never used, according to kotlin convention, they are renamed to "_"
             builder.setPositiveButton(android.R.string.yes) { _, _ ->
-                LoginManager.getInstance().logOut();
                 DatabaseManager().removeAccount()
                 val user = Firebase.auth.currentUser!!
+                LoginManager.getInstance().logOut();
 
                 user.delete()
                     .addOnCompleteListener { task ->

@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="theme1">#03A9F4</color>
-    <color name="theme2">#FF9800</color>
-    <color name="theme3">#F44336</color>
+    <color name="theme1">#64B5F6</color>
+    <color name="theme2">#FF9100</color>
+    <color name="theme3">#FF3D00</color>
+    <color name="theme4">#98CCF6</color>
+    <color name="theme5">#2C2C2C</color>
+
+
+
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="grey">#646464</color>

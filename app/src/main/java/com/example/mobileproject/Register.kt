@@ -33,6 +33,10 @@ class Register : AppCompatActivity() {
         // Initialize Firebase Auth
         auth = Firebase.auth
 
+        back_button_register.setOnClickListener{
+            onBackPressed()
+        }
+
 
         //Show password checkbox listener
         signuppass_check.setOnClickListener{
