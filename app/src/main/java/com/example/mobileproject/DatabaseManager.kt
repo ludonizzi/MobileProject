@@ -44,6 +44,7 @@ class DatabaseManager(
         database!!.child("users").child(uid!!).removeValue();
     }
 
+
     fun getUser(fragment: Fragment){
         val listUser: MutableList<UserModel> = mutableListOf()
         val lm: List<UserModel> = listUser

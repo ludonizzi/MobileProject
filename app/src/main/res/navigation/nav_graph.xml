@@ -36,6 +36,9 @@
         <action
             android:id="@+id/action_HomeFragment_to_profile2"
             app:destination="@id/profile" />
+        <action
+            android:id="@+id/action_HomeFragment_to_chatBox"
+            app:destination="@id/chatBox" />
     </fragment>
     <activity
         android:id="@+id/register"
@@ -57,4 +60,9 @@
         android:label="activity_profile"
         tools:layout="@layout/activity_profile" >
     </activity>
+    <activity
+        android:id="@+id/chatBox"
+        android:name="com.example.mobileproject.ChatBox"
+        android:label="activity_chat_box"
+        tools:layout="@layout/activity_chat_box" />
 </navigation>
