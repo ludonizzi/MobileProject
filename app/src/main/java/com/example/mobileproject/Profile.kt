@@ -1,6 +1,8 @@
 package com.example.mobileproject
 
+import android.content.Context
 import android.content.Intent
+import android.hardware.*
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
@@ -10,11 +12,25 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
 import kotlinx.android.synthetic.main.activity_profile.*
+import java.lang.Math.acos
+import java.lang.Math.asin
 
-class Profile : AppCompatActivity() {
+import java.util.*
+
+
+class Profile : AppCompatActivity(), SensorEventListener {
+
+    private lateinit var mSensorManager: SensorManager
+    private var mSensors: Sensor? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
+
+
+        mSensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
+
+        mSensors = mSensorManager!!.getDefaultSensor(Sensor.TYPE_GRAVITY)
 
         val database = DatabaseManager()
         database.getUserDetail(this)
@@ -73,5 +89,33 @@ class Profile : AppCompatActivity() {
             onBackPressed()
         }
 
+
     }
+
+    override fun onResume() {
+        super.onResume()
+        mSensorManager.registerListener(
+            this,
+            mSensors,
+            SensorManager.SENSOR_STATUS_ACCURACY_LOW
+        )
+    }
+
+    override fun onAccuracyChanged(p0: Sensor?, p1: Int) {
+
+    }
+
+    override fun onSensorChanged(event: SensorEvent?) {
+        val x = event!!.values[0]
+        val y = event.values[1]
+        val z = event.values[2]
+        profilepicture.rotation = Math.toDegrees(acos(y / 9.8)).toFloat()
+
+        if (x < 0) {
+            profilepicture.rotation = profilepicture.rotation * -1
+        }
+
+
+    }
+
 }

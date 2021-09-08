@@ -55,12 +55,12 @@
             app:layout_constraintTop_toTopOf="parent" />
 
 
-        <pl.droidsonroids.gif.GifImageView
+        <ImageView
             android:id="@+id/profilepicture"
             android:layout_width="129dp"
             android:layout_height="129dp"
             android:layout_marginTop="64dp"
-            android:src="@drawable/bird_gif"
+            android:src="@drawable/splash_bird"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.145"
             app:layout_constraintStart_toStartOf="parent"
